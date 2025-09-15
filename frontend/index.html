@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>天氣小站</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🌤 天氣小站</h1>
+  <p>點擊城市查看天氣：</p>
+
+  <ul>
+    <li><button onclick="getWeather('Taipei')">台北</button></li>
+    <li><button onclick="getWeather('Taichung')">台中</button></li>
+    <li><button onclick="getWeather('Kaohsiung')">高雄</button></li>
+    <li><button onclick="getWeather('Beijing')">北京</button></li>
+    <li><button onclick="getWeather('Paris')">巴黎</button></li>
+    <li><button onclick="getWeather('New York')">紐約</button></li>
+  </ul>
+
+  <div id="weather"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
