@@ -1,17 +1,19 @@
 import express from "express";
-import axios from "axios";
 import cors from "cors";
+import axios from "axios";
 
 const app = express();
-const PORT = 3000;
 
-// 允許跨來源請求 (讓前端能呼叫)
+// 允許所有來源呼叫 API
 app.use(cors());
 
-const apiKey = process.env.OPENWEATHER_API_KEY;
+// 或只允許 GitHub Pages 網域
+// app.use(cors({
+//   origin: "https://channing-ux.github.io"
+// }));
 
+const API_KEY = process.env.OPENWEATHER_API_KEY;
 
-// 後端 API (接收前端的城市請求，去抓天氣)
 app.get("/weather", async (req, res) => {
   const city = req.query.city;
   try {
@@ -24,6 +26,5 @@ app.get("/weather", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`後端伺服器已啟動：http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
