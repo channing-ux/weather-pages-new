@@ -8,7 +8,8 @@ const PORT = 3000;
 // 允許跨來源請求 (讓前端能呼叫)
 app.use(cors());
 
-const API_KEY = "eee92af78eb3bc83e5c1cd39e2942893";
+const apiKey = process.env.OPENWEATHER_API_KEY;
+
 
 // 後端 API (接收前端的城市請求，去抓天氣)
 app.get("/weather", async (req, res) => {
