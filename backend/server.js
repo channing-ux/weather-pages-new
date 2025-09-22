@@ -4,10 +4,10 @@ import axios from "axios";
 
 const app = express();
 
-// 允許所有來源呼叫 API
+// 啟用 CORS，允許所有來源
 app.use(cors());
 
-// 或只允許 GitHub Pages 網域
+// 或者，只允許 GitHub Pages 的來源
 // app.use(cors({
 //   origin: "https://channing-ux.github.io"
 // }));
@@ -25,6 +25,9 @@ app.get("/weather", async (req, res) => {
     res.status(500).json({ error: "無法取得天氣資料" });
   }
 });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
