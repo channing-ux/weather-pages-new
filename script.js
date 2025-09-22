@@ -1,6 +1,6 @@
 async function getWeather(city) {
   try {
-    const response = await fetch(`http://localhost:3000/weather?city=${city}`);
+    const response = await fetch(`https://weather-pages-new.onrender.com`);
     const data = await response.json();
 
     const weatherDiv = document.getElementById("weather");
